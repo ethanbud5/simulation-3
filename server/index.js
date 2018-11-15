@@ -4,6 +4,7 @@ const {json} = require("body-parser");
 const cors = require("cors");
 const massive = require("massive");
 const session = require('express-session');
+const mainCtrl = require("./mainCtrl.js");
 
 
 var app = express();
@@ -21,7 +22,7 @@ massive(process.env.CONNECTION_STRING).then(dbInstance=>{
     app.set("db",dbInstance)
 }).catch(err=>console.log(err));
 
-
+mainCtrl(app)
 
 var port = 4000
 app.listen(port,()=>{
