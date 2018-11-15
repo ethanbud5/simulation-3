@@ -26,6 +26,7 @@ class Auth extends Component {
             }
             else{
                 console.log(res.data)
+                this.props.history.push("/dashboard")
             }
         }).catch(err=>console.log(err))
     }
@@ -40,6 +41,8 @@ class Auth extends Component {
             }
             else{
                 console.log(res.data)
+                this.props.history.push("/dashboard")
+
             }
         }).catch(err=>console.log(err))
 

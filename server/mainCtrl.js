@@ -47,6 +47,25 @@ module.exports = app =>{
             }
             }
         }).catch(console.log)
+    }),
+    app.get("/api/user",(req,res)=>{
+        const db = req.app.get('db')
+        db.users_helo.find({
+            id_helo: req.session.user_id
+        }).then(user=>{
+            // console.log("user: ",user)
+            if (user.length ===0){
+            // }).catch(console.log)
+                res.status(200).json("No User!")
+        } else {
+                res.status(200).json(user[0])
+            }
+        }).catch(console.log)
+    }),
+    app.get("/api/logout",(req,res)=>{
+        req.session.destroy();
+        // console.log(req.session)
+        res.status(200).send("ok");
     })
 
 }
