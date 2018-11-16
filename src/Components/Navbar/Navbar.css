@@ -21,4 +21,18 @@
     width: 60px;
     position: absolute;
     bottom: 20px;
+    cursor: pointer;
+}
+.home_and_add_container{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.home_and_add_container>img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
 }
