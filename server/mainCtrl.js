@@ -68,4 +68,16 @@ module.exports = app =>{
         res.status(200).send("ok");
     })
 
+    app.post("/api/post",(req,res)=>{
+        const db = req.app.get('db')
+        db.post_helo.insert({
+            author_id:+req.session.user_id,
+            content:req.body.content,
+            img:req.body.img,
+            title:req.body.title
+        }).then(response=>{
+            res.status(200).json(response)
+        }).catch(err=>console.log(err))
+    })
+
 }
