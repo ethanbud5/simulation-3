@@ -16,6 +16,7 @@ class Dashboard extends Component {
     }
     
     componentDidMount(){
+        //TODO - also send back the person on session so we can filter by the user that is logged in.
         Axios.get("/api/posts").then(res=>{
             // console.log(res.data)
             this.setState({posts:res.data})
