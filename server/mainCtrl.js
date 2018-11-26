@@ -80,4 +80,16 @@ module.exports = app =>{
         }).catch(err=>console.log(err))
     })
 
+    app.get("/api/posts",(req,res)=>{
+        const db = req.app.get('db')
+        db.query(`
+            SELECT * 
+                FROM post_helo p
+                JOIN users_helo u
+                ON p.author_id = u.id_helo;
+        `).then(posts=>{
+            res.status(200).json(posts)
+        }).catch(err=>console.log(err))
+    })
+
 }
