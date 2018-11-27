@@ -17,7 +17,7 @@ class Post extends Component {
     }
     
     componentDidMount(){
-        Axios.get("/api/post/"+this.props.match.params.id).then(res=>{
+        Axios.get("/api/post/"+this.props.match.params.postid).then(res=>{
             this.setState({post:res.data})
         })
     }
