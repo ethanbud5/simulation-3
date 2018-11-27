@@ -88,7 +88,17 @@ module.exports = app =>{
                 JOIN users_helo u
                 ON p.author_id = u.id_helo;
         `).then(posts=>{
-            res.status(200).json(posts)
+            res.status(200).json([posts,req.session.user_id])
+        }).catch(err=>console.log(err))
+    })
+    app.get("/api/post/:id",(req,res)=>{
+        const db = req.app.get('db')
+        db.query(`
+            SELECT * 
+                FROM post_helo
+                WHERE id_post = ${req.params.id};
+        `).then(post=>{
+            res.status(200).json(post[0])
         }).catch(err=>console.log(err))
     })
 
