@@ -14,7 +14,7 @@ class Navbar extends React.Component {
         this.logout = this.logout.bind(this);
     }
     componentDidMount(){
-        Axios.get("api/user").then(res=>{
+        Axios.get("/api/user").then(res=>{
             // console.log(res.data)
             this.setState({user:res.data})
         }).catch(err=>console.log(err))
